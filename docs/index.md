@@ -1,7 +1,7 @@
 ---
 home: true
 # heroImage: /img/web.png
-heroText: 这是谁家的小Baby
+# heroText: 这是谁家的小Baby
 # tagline: 方得始终
 # actionText: 立刻进入 →
 # actionLink: /start/

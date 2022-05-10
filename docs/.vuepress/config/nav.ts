@@ -62,17 +62,15 @@ export default <Array<NavItem>>[
         link: "/pages/3b5bc6/",
       },
     ],
-    // items: [
-    //   {
-    //     text: "前端",
-    //     link: "/web/",
-    //   },
-    // ],
   },
   {
     text: "技术",
-    link: "/pages/f2223/",
+    link: "/skill/",
     items: [
+      {
+        text: "技术",
+        link: "/skill/",
+      },
       {
         text: "vue3学习记录",
         link: "/pages/f2223/",
@@ -84,9 +82,13 @@ export default <Array<NavItem>>[
     ],
   },
   {
-    text: "记录",
-    link: " /pages/43a79122/",
+    text: "UI",
+    link: "/UI/",
     items: [
+      {
+        text: "UI",
+        link: "/UI/",
+      },
       {
         text: "单行多行文本超出隐藏解决方法",
         link: "/pages/43a79122/",
@@ -95,8 +97,9 @@ export default <Array<NavItem>>[
   },
   {
     text: "收藏",
-    link: "/pages/beb6c0bd8a66cea6/",
+    link: "/collect/",
     items: [
+      { text: "收藏", link: "/collect/" },
       { text: "实用网站", link: "/pages/beb6c0bd8a66cea6/" },
       { text: "资源库", link: "/pages/eee83a9211a70f9d/" },
       { text: "Vue专区", link: "/pages/12df8ace52d493f6/" },

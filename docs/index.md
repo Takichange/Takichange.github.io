@@ -10,16 +10,16 @@ bannerBg: none # auto => 网格纹背景(有bodyBgImg时无背景)，默认 | no
 features: # 可选的
   - title: 技术
     # details: 快速开始使用主题
-    link: /pages/f2223/ # 可选
-    imgUrl: /assets/img/web.png # 可选
+    link: /skill/ # 可选
+    imgUrl: /assets/img/dragons-head.svg # 可选
   - title: 前端
     # details: 不同部署平台的CI配置方法
-    link: /pages/01a636/
-    imgUrl: /assets/img/logo.png
+    link: /web/
+    imgUrl: /assets/img/girl-1.svg
   - title: 收藏
     # details: 更多参考示例
-    link: /pages/beb6c0bd8a66cea6/
-    imgUrl: /assets/img/logo3.png
+    link: /collect/
+    imgUrl: /assets/img/surfing.svg
 
 
 # 文章列表显示方式: detailed 默认，显示详细版文章列表（包括作者、分类、标签、摘要、分页等）| simple => 显示简约版文章列表（仅标题和日期）| none 不显示文章列表

@@ -72,12 +72,16 @@ export default <Array<NavItem>>[
         link: "/skill/",
       },
       {
-        text: "vue3学习记录",
+        text: "vue3记录",
         link: "/pages/f2223/",
       },
       {
-        text: "TS学习记录",
+        text: "TS记录",
         link: "/pages/fb23314/",
+      },
+      {
+        text: "Jenkins-Nginx",
+        link: "/pages/9d8967/",
       },
     ],
   },

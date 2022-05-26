@@ -43,11 +43,11 @@ export default <Array<NavItem>>[
       },
       {
         text: "React",
-        link: "/pages/50bb3f/",
+        link: "/pages/eb18b6/",
       },
       {
         text: "Vue",
-        link: "/pages/92b496/",
+        link: "/pages/5e3b2f/",
       },
       {
         text: "Uni-app",
@@ -72,11 +72,11 @@ export default <Array<NavItem>>[
         link: "/skill/",
       },
       {
-        text: "vue3记录",
+        text: "Vue3入门",
         link: "/pages/f2223/",
       },
       {
-        text: "TS记录",
+        text: "TypeScript入门",
         link: "/pages/fb23314/",
       },
       {
@@ -94,7 +94,7 @@ export default <Array<NavItem>>[
         link: "/UI/",
       },
       {
-        text: "单行多行文本超出隐藏解决方法",
+        text: "文本超出隐藏解决",
         link: "/pages/43a79122/",
       },
     ],

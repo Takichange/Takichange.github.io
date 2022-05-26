@@ -50,7 +50,7 @@ export default <VdoingThemeConfig>{
   author: {
     // 文章默认的作者信息，可在.md文件front matter中单独配置此信息 String | {name: String, link: String}
     name: "nengkai", // 必需
-    // link: "https://blog.xxwhite.com", // 可选的
+    link: "https://takichange-github-io.vercel.app/", // 可选的
   },
 
   // 博主信息，显示在首页侧边栏
@@ -67,7 +67,6 @@ export default <VdoingThemeConfig>{
       {
         iconClass: "icon-QQ",
         title: "QQ",
-        link: "/assets/html/qq-groups.html",
       },
       // {
       //   iconClass: "icon-bilibili",
@@ -88,6 +87,7 @@ export default <VdoingThemeConfig>{
   },
   footer: {
     // 页脚信息, 请根据实际情况修改, 删掉不需要的部分
+
     createYear: 2022, // 博客创建年份
     copyrightInfo: `
     `, // 博客版权信息，支持a标签

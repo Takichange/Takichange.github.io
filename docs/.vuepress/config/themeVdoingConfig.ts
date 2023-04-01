@@ -6,7 +6,7 @@ import { VdoingThemeConfig } from "vuepress-theme-vdoing/types";
 export default <VdoingThemeConfig>{
   nav: nav, // 上方导航栏配置, 如需修改请修改 nav.ts
   sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
-  logo: "/assets/img/tribar.svg", // 导航栏Logo
+  logo: "/assets/img/logo.png", // 导航栏Logo
   repo: "https://github.com/Takichange", // 导航栏右侧生成Github链接
   searchMaxSuggestions: 5, // 搜索结果显示最大数
   lastUpdated: "上次更新", // 更新的时间，及前缀文字   string | boolean (取值为git提交时间)
@@ -43,7 +43,7 @@ export default <VdoingThemeConfig>{
 
   updateBar: {
     // 最近更新栏
-    showToArticle: false, // 显示到文章页底部，默认true
+    showToArticle: true, // 显示到文章页底部，默认true
     moreArticle: "/archives", // “更多文章”跳转的页面，默认'/archives'
   },
 

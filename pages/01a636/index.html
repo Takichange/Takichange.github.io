@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>性能优化 | K-BOlG</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="个人博客，学习踩坑记录">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/1.styles.bd172a24.css" as="style"><link rel="preload" href="/assets/js/app.276c1dfb.js" as="script"><link rel="preload" href="/assets/js/11.c37d6593.js" as="script"><link rel="preload" href="/assets/js/24.253b512b.js" as="script">
+    <link rel="stylesheet" href="/assets/css/1.styles.bd172a24.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu have-body-img"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/logo.png" alt="K-BOlG" class="logo"> <span class="site-name can-hide">K-BOlG</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/" class="nav-link">前端</a></li><li class="dropdown-item"><!----> <a href="/pages/1d1b92/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/43a79d/" class="nav-link">Ajax</a></li><li class="dropdown-item"><!----> <a href="/pages/079821/" class="nav-link">Node</a></li><li class="dropdown-item"><!----> <a href="/pages/934d6e/" class="nav-link">MongoDB</a></li><li class="dropdown-item"><!----> <a href="/pages/2135b2/" class="nav-link">Axios</a></li><li class="dropdown-item"><!----> <a href="/pages/06c08b/" class="nav-link">Git</a></li><li class="dropdown-item"><!----> <a href="/pages/df6335/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/eb18b6/" class="nav-link">React</a></li><li class="dropdown-item"><!----> <a href="/pages/5e3b2f/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/bdbd49/" class="nav-link">Uni-app</a></li><li class="dropdown-item"><!----> <a href="/pages/01a636/" aria-current="page" class="nav-link router-link-exact-active router-link-active">性能优化</a></li><li class="dropdown-item"><!----> <a href="/pages/3b5bc6/" class="nav-link">移动端</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/skill/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/skill/" class="nav-link">技术</a></li><li class="dropdown-item"><!----> <a href="/pages/f2223/" class="nav-link">Vue3入门</a></li><li class="dropdown-item"><!----> <a href="/pages/fb23314/" class="nav-link">TypeScript入门</a></li><li class="dropdown-item"><!----> <a href="/pages/9d8967/" class="nav-link">Jenkins-Nginx</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="UI" class="dropdown-title"><a href="/UI/" class="link-title">UI</a> <span class="title" style="display:none;">UI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/UI/" class="nav-link">UI</a></li><li class="dropdown-item"><!----> <a href="/pages/43a79122/" class="nav-link">文本超出隐藏解决</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="收藏" class="dropdown-title"><a href="/collect/" class="link-title">收藏</a> <span class="title" style="display:none;">收藏</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/collect/" class="nav-link">收藏</a></li><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">实用网站</a></li><li class="dropdown-item"><!----> <a href="/pages/eee83a9211a70f9d/" class="nav-link">资源库</a></li><li class="dropdown-item"><!----> <a href="/pages/12df8ace52d493f6/" class="nav-link">Vue专区</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="随笔" class="dropdown-title"><a href="/pages/fb2914/" class="link-title">随笔</a> <span class="title" style="display:none;">随笔</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/fb2914/" class="nav-link">你知道的越多，不知道的也就越多</a></li><li class="dropdown-item"><!----> <a href="/pages/cd8bde/" class="nav-link">拥抱生活，拥抱快乐</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/Takichange" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/assets/img/the-joke.png"> <div class="blogger-info"><h3>nengkai</h3> <span>大道至简-知易行难</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/" class="nav-link">前端</a></li><li class="dropdown-item"><!----> <a href="/pages/1d1b92/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/43a79d/" class="nav-link">Ajax</a></li><li class="dropdown-item"><!----> <a href="/pages/079821/" class="nav-link">Node</a></li><li class="dropdown-item"><!----> <a href="/pages/934d6e/" class="nav-link">MongoDB</a></li><li class="dropdown-item"><!----> <a href="/pages/2135b2/" class="nav-link">Axios</a></li><li class="dropdown-item"><!----> <a href="/pages/06c08b/" class="nav-link">Git</a></li><li class="dropdown-item"><!----> <a href="/pages/df6335/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/eb18b6/" class="nav-link">React</a></li><li class="dropdown-item"><!----> <a href="/pages/5e3b2f/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/bdbd49/" class="nav-link">Uni-app</a></li><li class="dropdown-item"><!----> <a href="/pages/01a636/" aria-current="page" class="nav-link router-link-exact-active router-link-active">性能优化</a></li><li class="dropdown-item"><!----> <a href="/pages/3b5bc6/" class="nav-link">移动端</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/skill/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/skill/" class="nav-link">技术</a></li><li class="dropdown-item"><!----> <a href="/pages/f2223/" class="nav-link">Vue3入门</a></li><li class="dropdown-item"><!----> <a href="/pages/fb23314/" class="nav-link">TypeScript入门</a></li><li class="dropdown-item"><!----> <a href="/pages/9d8967/" class="nav-link">Jenkins-Nginx</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="UI" class="dropdown-title"><a href="/UI/" class="link-title">UI</a> <span class="title" style="display:none;">UI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/UI/" class="nav-link">UI</a></li><li class="dropdown-item"><!----> <a href="/pages/43a79122/" class="nav-link">文本超出隐藏解决</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="收藏" class="dropdown-title"><a href="/collect/" class="link-title">收藏</a> <span class="title" style="display:none;">收藏</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/collect/" class="nav-link">收藏</a></li><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">实用网站</a></li><li class="dropdown-item"><!----> <a href="/pages/eee83a9211a70f9d/" class="nav-link">资源库</a></li><li class="dropdown-item"><!----> <a href="/pages/12df8ace52d493f6/" class="nav-link">Vue专区</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="随笔" class="dropdown-title"><a href="/pages/fb2914/" class="link-title">随笔</a> <span class="title" style="display:none;">随笔</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/fb2914/" class="nav-link">你知道的越多，不知道的也就越多</a></li><li class="dropdown-item"><!----> <a href="/pages/cd8bde/" class="nav-link">拥抱生活，拥抱快乐</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/Takichange" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>目录页</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>前端</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Ajax</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>MongoDB</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Axios</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Uni-app</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>性能优化</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/01a636/" aria-current="page" class="active sidebar-link">性能优化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/01a636/#一-浏览器应该有的功能" class="sidebar-link">一.浏览器应该有的功能</a></li><li class="sidebar-sub-header level2"><a href="/pages/01a636/#二、浏览器渲染引擎" class="sidebar-link">二、浏览器渲染引擎</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/01a636/#主要模块" class="sidebar-link">主要模块</a></li><li class="sidebar-sub-header level3"><a href="/pages/01a636/#大致的渲染过程" class="sidebar-link">大致的渲染过程</a></li><li class="sidebar-sub-header level3"><a href="/pages/01a636/#阻塞渲染" class="sidebar-link">阻塞渲染</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/01a636/#三-图层与重绘重排" class="sidebar-link">三.图层与重绘重排</a></li><li class="sidebar-sub-header level2"><a href="/pages/01a636/#四-cdn" class="sidebar-link">四.CDN</a></li><li class="sidebar-sub-header level2"><a href="/pages/01a636/#五-浏览器存储" class="sidebar-link">五.浏览器存储</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/01a636/#web-storage" class="sidebar-link">Web Storage</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/01a636/#六-缓存" class="sidebar-link">六.缓存</a></li><li class="sidebar-sub-header level2"><a href="/pages/01a636/#_1-缓存理解" class="sidebar-link">1. 缓存理解</a></li><li class="sidebar-sub-header level2"><a href="/pages/01a636/#_2-缓存分类" class="sidebar-link">2. 缓存分类</a></li><li class="sidebar-sub-header level2"><a href="/pages/01a636/#_3-缓存使用示意图" class="sidebar-link">3. 缓存使用示意图</a></li><li class="sidebar-sub-header level2"><a href="/pages/01a636/#_4-缓存中的header参数" class="sidebar-link">4. 缓存中的header参数</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/01a636/#_1、强缓存的header参数" class="sidebar-link">1、强缓存的header参数</a></li><li class="sidebar-sub-header level3"><a href="/pages/01a636/#_2、协商缓存的header参数" class="sidebar-link">2、协商缓存的header参数</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/01a636/#_5-强缓存如何重新加载新的资源" class="sidebar-link">5. 强缓存如何重新加载新的资源</a></li><li class="sidebar-sub-header level2"><a href="/pages/01a636/#七-函数防抖和节流" class="sidebar-link">七.函数防抖和节流</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>移动端</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>技术</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>UI</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>收藏</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>随笔</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>关于</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-1baff76c><div class="articleInfo" data-v-1baff76c><ul class="breadcrumbs" data-v-1baff76c><li data-v-1baff76c><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-1baff76c></a></li> <li data-v-1baff76c><a href="/categories/?category=views" title="分类" data-v-1baff76c>views</a></li><li data-v-1baff76c><a href="/categories/?category=%E5%89%8D%E7%AB%AF" title="分类" data-v-1baff76c>前端</a></li><li data-v-1baff76c><a href="/categories/?category=%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96" title="分类" data-v-1baff76c>性能优化</a></li></ul> <div class="info" data-v-1baff76c><div title="作者" class="author iconfont icon-touxiang" data-v-1baff76c><a href="https://takichange-github-io.vercel.app/" target="_blank" title="作者" class="beLink" data-v-1baff76c>nengkai</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-1baff76c><a href="javascript:;" data-v-1baff76c>2021-03-17</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">性能优化<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h2 id="一-浏览器应该有的功能"><a href="#一-浏览器应该有的功能" class="header-anchor">#</a> 一。浏览器应该有的功能</h2> <p>浏览器内核总结：<br>
+IE----------&gt;Trident</p> <div class="language- extra-class"><pre><code>Safari------&gt;WebKit
+	WebKit本身主要是由两个小引擎构成的，
+		一个正是渲染引擎“WebCore”，
+		另一个则是javascript解释引擎“JSCore”，
+		它们均是从KDE的渲染引擎KHTML及javascript解释引擎KJS衍生而来。
+		
+Chrome------&gt;WebKit的分支引擎-----&gt;Blink
+	 在13年发布的Chrome 28.0.1469.0版本开始，Chrome放弃Chromium引擎转
+	 而使用最新的Blink引擎（基于WebKit2——苹果公司于2010年推出的新的WebKit引擎），
+	 Blink对比上一代的引擎精简了代码、改善了DOM框架，也提升了安全性。
+	 
+Opera
+	旧版Opera 4至6版本 :Elektra排版引擎
+	Opera7.0	:Presto渲染引擎
+	Opera在2013年2月宣布放弃Presto:
+				采用Chromium引擎;
+				又转为Blink引擎;
+				
+Firefox------&gt;Gecko
+</code></pre></div><p>### 进程与线程<br>
+进程：程序的一次执行，它占有一片独有的内存空间。是操作系统执行的基本单元。<br>
+一个进程中至少有一个运行的线程：主线程，进程启动后自动创建<br>
+一个进程中也可以同时运行多个线程，我们会说程序是多线程运行的<br>
+一个进程内的数据可以供其中的多个线程直接共享，多个进程之间的数据是不能直接共享的</p> <div class="language- extra-class"><pre><code>线程：是进程内的一个独立执行单元,是CPU调度的最小单元。程序运行的基本单元
+	线程池(thread pool): 保存多个线程对象的容器, 实现线程对象的反复利用
+
+JS引擎是单线程运行的！（回忆事件轮询机制）
+</code></pre></div><p>### 现代浏览器：多进程、多线程模型<br>
+ 1. 不堪回首的过去:<br>
+ 当你通过浏览器打开很多页面的时候，如果其中一个页面不响应了或者崩溃了，<br>
+ 那么随之而来的将会是更不幸的事情，你开打的所有页面都会得不到响应，<br>
+ 最让人不能忍受的是，其中的一些页面可能还包含了未保存或者未发送的信息</p> <div class="language- extra-class"><pre><code>2.浏览器产商如何解决？
+	采用多进程模型,该模型可以带来的好处
+	①.避免因单个页面的不响应或者崩溃影响整个浏览器的稳定性
+	②.当第三方插件崩溃时,也不会影响整个浏览器的稳定性
+	③.安全
+	
+3.浏览器到底有些什么进程
+	①.Browser进程:
+		浏览器的主进程,负责浏览器界面的显示,和各个页面的管理,
+		浏览器中所有其他类型进程的祖先,负责其他进程的的创建和销毁
+		它有且只有一个!!!!!
+	②.Renderer进程:
+		网页渲染进程,负责页面的渲染,可以有多个
+		当然渲染进程的数量不一定等于你开打网页的个数
+	③.各种插件进程
+	④.GPU进程	
+	移动设备的浏览器可能不太一样:
+		Android不支持插件,所以就没有插件进程
+		GPU演化成了Browser进程的一个线程
+		Renderer进程演化成了操作系统的一个服务进程,它仍然是独立的
+
+4.每个进程内部又有很多线程
+	多线程的目的主要是保持用户界面的高度响应
+	例如:为了不让Browser进程的UI线程被其他耗时的操作(大文件的加载,本地文件读写)所阻塞,
+		那么我们就把这些操作放到分线程中去处理。
+	在Renderer进程中,为了不让其他操作阻止渲染线程的高速执行,我们通常会将渲染过程【管线化】,
+	利用计算机的多核优势,让渲染的不同阶段在不同的线程中执行
+</code></pre></div><ul><li></li></ul> <h2 id="二、浏览器渲染引擎"><a href="#二、浏览器渲染引擎" class="header-anchor">#</a> 二、浏览器渲染引擎</h2> <h3 id="主要模块"><a href="#主要模块" class="header-anchor">#</a> 主要模块</h3> <ul><li><p>一个渲染引擎主要包括：HTML 解析器，CSS 解析器，javascript 引擎，布局 layout 模块，绘图模块</p> <ul><li>HTML 解析器：解释 HTML 文档的解析器，主要作用是将 HTML 文本解释成 DOM 树。</li> <li>CSS 解析器：它的作用是为 DOM 中的各个元素对象计算出样式信息，为布局提供基础设施</li> <li>Javascript 引擎：使用 Javascript 代码可以修改网页的内容，也能修改 css 的信息，javascript 引擎能够解释 javascript 代码，并通过 DOM 接口和 CSS 树接口来修改网页内容和样式信息，从而改变渲染的结果。</li> <li>布局（layout）：在 DOM 创建之后，Webkit 需要将其中的元素对象同样式信息结合起来，计算他们的大小位置等布局信息，形成一个能表达这所有信息的内部表示模型</li> <li>绘图模块（paint）：使用图形库将布局计算后的各个网页的节点绘制成图像结果</li></ul> <blockquote><p>备注：文档对象模型（Document Object Model，简称 DOM）</p></blockquote></li></ul> <h3 id="大致的渲染过程"><a href="#大致的渲染过程" class="header-anchor">#</a> 大致的渲染过程</h3> <ul><li>浏览器渲染页面的整个过程：浏览器会从上到下解析文档。
+<ol><li>遇见 HTML 标记，调用 HTML 解析器解析为对应的 token （一个 token 就是一个标签文本的序列化）并构建 DOM 树（就是一块内存，保存着 tokens，建立它们之间的关系）。</li> <li>遇见 style/link 标记调用相应解析器处理 CSS 标记，并构建出 CSS 样式树。</li> <li>遇见 script 标记 调用 javascript 引擎 处理 script 标记、绑定事件、修改 DOM 树 / CSS 树等</li> <li>将 DOM 树 与 CSS 树 合并成一个渲染树。</li> <li>根据渲染树来渲染，以计算每个节点的几何信息（这一过程需要依赖 GPU）。</li> <li>最终将各个节点绘制到屏幕上。</li></ol></li></ul> <blockquote><p>以上这些模块依赖很多其他的基础模块，包括要使用到网络 存储 2D/3D 图像 音频视频解码器 和 图片解码器。<br>
+所以渲染引擎中还会包括如何使用这些依赖模块的部分。</p></blockquote> <h3 id="阻塞渲染"><a href="#阻塞渲染" class="header-anchor">#</a> 阻塞渲染</h3> <p>####1. 关于 css 阻塞：<br>
+声明：只有 link 引入的外部 css 才能够产生阻塞。<br>
+1.style 标签中的样式：<br>
+(1). 由 html 解析器进行解析；<br>
+(2). 不阻塞浏览器渲染（可能会产生 “闪屏现象”）；<br>
+(3). 不阻塞 DOM 解析；</p> <div class="language- extra-class"><pre><code>2.link引入的外部css样式（推荐使用的方式）：
+    (1). 由CSS解析器进行解析。
+    (2). 阻塞浏览器渲染(可以利用这种阻塞避免“闪屏现象”)。       
+    (3). 阻塞其后面的js语句的执行：
+    (4). 不阻塞DOM的解析(绝大多数浏览器的工作方式)：
+                 
+3.优化核心理念：尽可能快的提高外部css加载速度
+    	(1).使用CDN节点进行外部资源加速。
+	    (2).对css进行压缩(利用打包工具，比如webpack,gulp等)。
+	    (3).减少http请求数，将多个css文件合并。
+	    (4).优化样式表的代码
+</code></pre></div><p>####2. 关于 js 阻塞：<br>
+1. 阻塞后续 DOM 解析:<br>
+ 原因：浏览器不知道后续脚本的内容，如果先去解析了下面的 DOM，而随后的 js 删除了后面所有的 DOM，<br>
+那么浏览器就做了无用功，浏览器无法预估脚本里面具体做了什么操作，例如像 document.write<br>
+ 这种操作，索性全部停住，等脚本执行完了，浏览器再继续向下解析 DOM。	<br>
+2. 阻塞页面渲染:<br>
+ 原因：js 中也可以给 DOM 设置样式，浏览器等该脚本执行完毕，渲染出一个最终结果，避免做无用功。<br>
+3. 阻塞后续 js 的执行:<br>
+ 原因：维护依赖关系，例如：必须先引入 jQuery 再引入 bootstrap</p> <p>####3. 备注</p> <div class="language- extra-class"><pre><code>【备注1】：css的解析和js的执行是互斥的（互相排斥），css解析的时候js停止执行，js执行的时候css停止解析。
+【备注2】：无论css阻塞，还是js阻塞，都不会阻塞浏览器加载外部资源（图片、视频、样式、脚本等）
+            原因：浏览器始终处于一种：“先把请求发出去”的工作模式，只要是涉及到网络请求的内容，
+                无论是：图片、样式、脚本，都会先发送请求去获取资源，至于资源到本地之后什么时候用，
+                由浏览器自己协调。这种做法效率很高。
+                
+【备注3】：WebKit 和 Firefox 都进行了【预解析】这项优化。在执行js脚本时，浏览器的其他线程会预解析文档的其余部分，
+          找出并加载需要通过网络加载的其他资源。通过这种方式，资源可以在并行连接上加载，
+          从而提高总体速度。请注意，预解析器不会修改 DOM 树
+</code></pre></div><blockquote><p>在上述的过程中，网页在加载和渲染过程中会触发 “DOMContentLoaded” 和 “onload” 事件<br>
+分别是在 DOM 树构建（解析）完成之后，以及 DOM 树构建完并且网页所依赖的资源都加载完之后</p></blockquote> <ul><li>上面介绍的是一个完整的渲染过程，但现代网页很多都是动态的，这意味着在渲染完成之后，由于网页的动画或者用户的交互，<br>
+浏览器其实一直在不停地重复执行渲染过程。（重绘重排），以上的数字表示的是基本顺序，这不是严格一致的，<br>
+这个过程可能重复也可能交叉</li></ul> <h2 id="三-图层与重绘重排"><a href="#三-图层与重绘重排" class="header-anchor">#</a> 三。图层与重绘重排</h2> <p>###css 图层<br>
+浏览器在渲染一个页面时，会将页面分为很多个图层，图层有大有小，每个图层上有一个或多个节点。<br>
+在渲染 DOM 的时候，浏览器所做的工作实际上是：</p> <div class="language- extra-class"><pre><code>1. 获取DOM后分割为多个图层
+   2. 对每个图层的节点计算样式结果		（Recalculate style--样式重计算）
+      3. 为每个节点生成图形和位置			（Layout--布局，重排,回流）
+      4. 将每个节点绘制填充到图层位图中		（Paint--重绘）
+      5. 图层作为纹理上传至GPU
+      6. 组合多个图层到页面上生成最终屏幕图像	（Composite Layers--图层重组）
+         ###图层创建的条件
+         Chrome浏览器满足以下任意情况就会创建图层：
+      7. 拥有具有3D变换的CSS属性
+      8. 使用加速视频解码的&lt;video&gt;节点
+      9. 使用&lt;canvas&gt;节点
+      10. CSS3动画的节点
+      11. 拥有CSS加速属性的元素(will-change)
+          ###重绘(Repaint)
+          重绘是一个元素外观的改变所触发的浏览器行为，例如改变outline、背景色等属性。浏览器会根据元素的新属性重新绘制，
+          使元素呈现新的外观。重绘不会带来重新布局，所以并不一定伴随重排。
+</code></pre></div><div class="language- line-numbers-mode"><pre class="language-text"><code>需要注意的是：重绘是以图层为单位，如果图层中某个元素需要重绘，那么整个图层都需要重绘。
+所以为了提高性能，我们应该让这些“变化的东西”拥有一个自己一个图层，
+不过好在绝大多数的浏览器自己会为CSS3动画的节点自动创建图层。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>### 重排 (Reflow 又称：回流)<br>
+ 渲染对象在创建完成并添加到渲染树时，并不包含位置和大小信息。计算这些值的过程称为布局或重排</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;重绘&quot;不一定需要&quot;重排&quot;，比如改变某个网页元素的颜色，就只会触发&quot;重绘&quot;，不会触发&quot;重排&quot;，因为布局没有改变。
+&quot;重排&quot;大多数情况下会导致&quot;重绘&quot;，比如改变一个网页元素的位置，就会同时触发&quot;重排&quot;和&quot;重绘&quot;，因为布局改变了。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>### 触发重绘的属性<br>
+ * color							* background								* outline-color<br>
+* border-style					* background-image							* outline<br>
+* border-radius					* background-position						* outline-style<br>
+* visibility					* background-repeat							* outline-width<br>
+* text-decoration				* background-size							* box-shadow</p> <p>### 触发重排 (回流) 的属性<br>
+ * width						* top									* text-align<br>
+* height					* bottom								* overflow-y<br>
+* padding					* left									* font-weight<br>
+* margin					* right									* overflow<br>
+* display					* position								* font-family<br>
+* border-width				* float									* line-height<br>
+* border					* clear									* vertival-align<br>
+* min-height														* white-space</p> <p>### 常见的触发重排的操作<br>
+ Reflow (重排) 的成本比 Repaint (重绘) 的成本高很多很多。<br>
+一个结点的 Reflow 很有可能导致子结点，甚至父点以及同级结点的 Reflow。<br>
+在一些高性能的电脑上也许还没什么，但是如果 Reflow 发生在手机上，那么这个过程是非常痛苦和耗电的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>所以，下面这些动作有很大可能会是成本比较高的。
+	当你增加、删除、修改 DOM 结点时，会导致 Reflow , Repaint。
+	当你移动 DOM 的位置
+	当你修改 CSS 样式的时候。
+	当你 Resize 窗口的时候（移动端没有这个问题，因为移动端的缩放没有影响布局视口)
+	当你修改网页的默认字体时。
+	【获取某些属性时(width,height...)！！！！！】
+	注：display:none 会触发 reflow，而 visibility:hidden 只会触发 repaint，因为没有发生位置变化。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>### 优化方案<br>
+我们已知：浏览器渲染页面时经历了如下 “细致” 的环节：<br>
+1. 计算需要被加载到节点上的样式结果（Recalculate style-- 样式重计算）<br>
+2. 为每个节点生成图形和位置（Layout-- 重排或回流）<br>
+3. 将每个节点填充到图层中（Paint-- 重绘）<br>
+4. 组合图层到页面上（Composite Layers-- 图层重组）<br>
+如果我们需要提升性能，需要做的就是减少浏览器在运行时所需要做的工作，即：尽量减少 1234 步。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>【具体优化方案如下】：
+1.元素位置移动变换时尽量使用CSS3的transform来代替对top left等的操作
+	变换（transform）和透明度（opacity）的改变仅仅影响图层的组合
+2.【使用opacity来代替visibility】
+    (1).使用visibility不触发重排，但是依然重绘。
+    (2).直接使用opacity即触发重绘，又触发重排（GPU底层设计如此！）。
+    (3).opacity配合图层使用，即不触发重绘也不触发重排。
+        原因：
+		透明度的改变时，GPU在绘画时只是简单的降低之前已经画好的纹理的alpha值来达到效果，并不需要整体的重绘。
+		不过这个前提是这个被修改opacity本身必须是一个图层。
+3.【不要使用table布局】
+	table-cell
+4.将【多次改变样式属性的操作合并成一次】操作
+	不要一条一条地修改DOM的样式，预先定义好class，然后修改DOM的className
+5.【将DOM离线后再修改】
+	由于display属性为none的元素不在渲染树中，对隐藏的元素操作不会引发其他元素的重排。
+	如果要对一个元素进行复杂的操作时，可以先隐藏它，操作完成后再显示。这样只在隐藏和显示时触发2次重排。
+6.【利用文档碎片】(documentFragment)------vue使用了该种方式提升性能。
+7.【不要把获取某些DOM节点的属性值放在一个循环里当成循环的变量】
+	当你请求向浏览器请求一些 style信息的时候，就会让浏览器flush队列，比如：
+		1. offsetTop, offsetLeft, offsetWidth, offsetHeight
+		2. scrollTop/Left/Width/Height
+		3. clientTop/Left/Width/Height
+		4. width,height
+    当你请求上面的一些属性的时候，浏览器为了给你最精确的值，需要刷新内部队列，
+    因为队列中可能会有影响到这些值的操作。即使你获取元素的布局和样式信息跟最近发生或改变的布局信息无关，
+    浏览器都会强行刷新渲染队列。
+8.动画实现过程中，启用GPU硬件加速:transform: tranlateZ(0)
+9.为动画元素新建图层,提高动画元素的z-index
+10.编写动画时，尽量使用如下的API
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><p>###requestAnimationFrame---- 请求动画帧</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>1.window.requestAnimationFrame() 
+    说明：该方法会告诉浏览器在下一次重绘重排之前调用你所指定的函数
+    1.参数：该方法使用一个回调函数作为参数，这个回调函数会在浏览器下一次重绘之前调用。
+            回调函数会被自动传入一个参数，DOMHighResTimeStamp，标识requestAnimationFrame()开始触发回调函数的当前时间
+
+    2.返回值：
+            一个 long 整数，请求 ID ，是回调列表中唯一的标识。是个非零值，没别的意义。你可以传这个值给 window.cancelAnimationFrame() 以取消回调函数。
+            
+备注：若你想在浏览器下次重绘之前继续更新下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame()
+ 
+2.window.cancelAnimationFrame(requestID)
+    取消一个先前通过调用window.requestAnimationFrame()方法添加到计划中的动画帧请求。
+    requestID是先前调用window.requestAnimationFrame()方法时返回的值，它是一个时间标识，用法与定时器的id类似。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>​</p> <h2 id="四-cdn"><a href="#四-cdn" class="header-anchor">#</a> 四.CDN</h2> <p>### 什么是 CDN？工作原理是什么？<br>
+网站通常将其所有的服务器都放在同一个地方，当用户群增加时，公司就必须在多个地理位置不同的服务器上部署内容<br>
+为了缩短 http 请求的时间，我们应该把大量的静态资源放置的离用户近一点。</p> <p>内容发布网络 CDN（Content  Delivery Networks）<br>
+CDN 是一组分布在多个不同地理位置的 web 服务器，用于更加有效的向用户发布内容</p> <div class="language- extra-class"><pre><code>基本思路：
+    尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。
+    通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，
+    CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息
+    将用户的请求重新导向离用户最近的服务节点上。
+
+基础架构：最简单的CDN网络由一个DNS服务器和几台缓存服务器组成
+    1.用户输入的url，会经过DNS解析“翻译”成对应的ip地址，从而找到CDN专用的服务器。
+    2.CDN“拿到”用户的IP地址，随后和区域负载均衡设备配合，选择一台用户所属区域的区域负载均衡设备，告诉用户向这台设备发起请求。
+    3.上述步骤中的“选择”依据
+            (1).选择的依据包括：根据用户IP地址，判断哪一台服务器距用户最近；
+            (2).根据用户所请求的URL中携带的内容名称，判断哪一台服务器上有用户所需内容；
+            (3).查询各个服务器当前的负载情况，判断哪一台服务器尚有服务能力。
+</code></pre></div><h2 id="五-浏览器存储"><a href="#五-浏览器存储" class="header-anchor">#</a> 五。浏览器存储</h2> <div class="language- extra-class"><pre><code>Cookie, SessionStorage, LocalStorage这三者都可以被用来在浏览器端存储数据，而且都是字符串类型的键值对！
+
+注意：session和SessionStorage不是一个概念！！！在服务端有一种存储方式叫做：session会话存储，常常被简称session
+后期Node课程中会对cookie和session会话存储进行详细讲解
+</code></pre></div><h3 id="web-storage"><a href="#web-storage" class="header-anchor">#</a> Web Storage</h3> <div class="language- extra-class"><pre><code>SessionStorage和LocalStorage都是浏览器本地存储，统称为Web Storage，存储内容大小一般支持5-10MB
+浏览器端通过 Window.sessionStorage 和 Window.localStorage 属性来实现本地存储机制。
+
+相关API：
+1. localStorage.setItem('key', 'value');
+		该方法接受一个键名和值作为参数，将会把键值对添加到存储中，如果键名存在，则更新其对应的值。
+		
+2. var data = xxxxxStorage.getItem('person');
+	该方法接受一个键名作为参数，返回键名对应的值。
+
+3. xxxxxStorage.removeItem('key');
+	该方法接受一个键名作为参数，并把该键名从存储中删除。
+	
+4. xxxxxStorage.clear()
+	调用该方法会清空存储中的所有键名
+
+备注：SessionStorage存储的内容会随着浏览器窗口关闭而消失。
+      LocalStorage存储的内容，需要手动清除才会消失。
+
+storage事件：	
+	1. Storage对象发生变化时触发（即创建/更新/删除数据项时，Storage.clear() 只会触发一次）
+	2. 在同一个页面内发生的改变不会起作用
+	3. 在相同域名下的其他页面发生的改变才会起作用。(修改的页面不会触发事件，与它共享的页面会触发事件)
+		key 	    :  修改或删除的key值，如果调用clear(),为null
+		newValue    :  新设置的值，如果调用clear(),为null
+		oldValue    :  调用改变前的value值,如果调用clear(),为null
+		url         :  触发该脚本变化的文档的url
+		storageArea :  当前的storage对象
+使用方法：
+        window.addEventListener('storage',function (event) {
+            //此处写具体业务逻辑
+          })
+</code></pre></div><p>### 浏览器储存量的支持<br>
+ http://dev-test.nemikor.com/web-storage/support-test/</p> <h2 id="六-缓存"><a href="#六-缓存" class="header-anchor">#</a> 六。缓存</h2> <h2 id="_1-缓存理解"><a href="#_1-缓存理解" class="header-anchor">#</a> 1. 缓存理解</h2> <div class="language- extra-class"><pre><code>1. 缓存定义:
+       1. 浏览器在本地磁盘上将用户之前请求的数据存储起来，当访问者再次需要改数据的时候无需再次发送请求，直接从浏览器本地获取数据
+2. 缓存的好处:
+       1. 减少请求的个数
+              2. 节省带宽，避免浪费不必要的网络资源
+                     3. 减轻服务器压力
+                            4. 提高浏览器网页的加载速度，提高用户体验
+</code></pre></div><h2 id="_2-缓存分类"><a href="#_2-缓存分类" class="header-anchor">#</a> 2. 缓存分类</h2> <div class="language- extra-class"><pre><code>1. 强缓存
+       1. 不会向服务器发送请求，直接从本地缓存中获取数据
+              2. 请求资源的的状态码为: 200 ok(from memory cache)
+2. 协商缓存
+       1. 向服务器发送请求，服务器会根据请求头的资源判断是否命中协商缓存
+              2. 如果命中，则返回304状态码通知浏览器从缓存中读取资源
+3. 强缓存 &amp; 协商缓存的共同点
+       1. 都是从浏览器端读取资源
+4. 强缓存 VS 协商缓存的不同点
+   1. 强缓存不发请求给服务器
+   2. 协商缓存发请求给服务器，根据服务器返回的信息决定是否使用缓存
+</code></pre></div><h2 id="_3-缓存使用示意图"><a href="#_3-缓存使用示意图" class="header-anchor">#</a> 3. 缓存使用示意图</h2> <p><img src="E:%5C%E6%A1%8C%E9%9D%A2%E6%96%87%E4%BB%B6%5C%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%5C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.assets%5CV7f829.png" alt=""></p> <h2 id="_4-缓存中的header参数"><a href="#_4-缓存中的header参数" class="header-anchor">#</a> 4. 缓存中的 header 参数</h2> <h3 id="_1、强缓存的header参数"><a href="#_1、强缓存的header参数" class="header-anchor">#</a> 1、强缓存的 header 参数</h3> <hr> <div class="language- extra-class"><pre><code>1. expires：
+       1. 这是http1.0时的规范；它的值为一个绝对时间的GMT格式的时间字符串，如```Mon, 10 Jun 2015 21:31:12 GMT```，如果发送请求的时间在expires之前，那么本地缓存始终有效，否则就会发送请求到服务器来获取资源
+2. cache-control：max-age=number
+       1. 这是http1.1时出现的header信息，主要是利用该字段的max-age值来进行判断，它是一个相对值；资源第一次的请求时间和Cache-Control设定的有效期，计算出一个资源过期时间，再拿这个过期时间跟当前的请求时间比较，如果请求时间在过期时间之前，就能命中缓存，否则就不行；
+              2. cache-control常用的值（做一个简单了解即可）：
+     2. no-cache: 不使用本地缓存，需要使用协商缓存。先与服务器确认返回的响应是否被更改，如果之前的响应中存在Etag，那么请求的额时候会与服务器端进行验证，如果资源为被更改则使用缓存。
+     3. no-store: 直接禁止游览器缓存数据，每次用户请求该资源，都会向服务器发送一个请求，每次都会下载完整的资源。
+     4. public：可以被所有的用户缓存，包括终端用户和CDN等中间代理服务器。
+     5. private：只能被终端用户的浏览器缓存，不允许CDN等中继缓存服务器对其缓存。
+        2. &lt;font color=red&gt;注意：当cache-control与Expires共存的时候cache-control的优先级高&lt;/font&gt;
+</code></pre></div><h3 id="_2、协商缓存的header参数"><a href="#_2、协商缓存的header参数" class="header-anchor">#</a> 2、协商缓存的 header 参数</h3> <hr> <p><font color="red"> 重点：协商缓存都是由服务器来确定缓存资源是否可用的，所以客户端与服务器端要通过某种标识来进行通信，从而让服务器判断请求资源是否可以缓存访问</font></p> <ul><li><p>Last-Modified/If-Modified-Since: 二者的值都是 GMT 格式的时间字符串</p> <ol><li>浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在 respone 的 header 加上 Last-Modified 的 header，这个 header 表示这个资源在服务器上的最后修改时间</li> <li>浏览器再次跟服务器请求这个资源时，在 request 的 header 上加上 If-Modified-Since 的 header，这个 header 的值就是上一次请求时返回的 Last-Modified 的值</li> <li>服务器再次收到资源请求时，根据浏览器传过来 If-Modified-Since 和资源在服务器上的最后修改时间判断资源是否有变化，如果没有变化则返回 304 Not Modified，但是不会返回资源内容；如果有变化，就正常返回资源内容。当服务器返回 304 Not Modified 的响应时，response header 中不会再添加 Last-Modified 的 header，因为既然资源没有变化，那么 Last-Modified 也就不会改变，这是服务器返回 304 时的 response header</li> <li>浏览器收到 304 的响应后，就会从缓存中加载资源</li> <li>如果协商缓存没有命中，浏览器直接从服务器加载资源时，Last-Modified 的 Header 在重新加载的时候会被更新，下次请求时，If-Modified-Since 会启用上次返回的 Last-Modified 值</li> <li>图例：<img src="https://i.imgur.com/GZqqDbS.png" alt=""></li></ol></li></ul> <hr> <ul><li>Etag/If-None-Match
+<ol><li>这两个值是由服务器生成的每个资源的唯一标识字符串，只要资源有变化就这个值就会改变</li> <li>其判断过程与 Last-Modified/If-Modified-Since 类似</li></ol></li></ul> <hr> <ul><li>既生 Last-Modified 何生 Etag
+<ol><li>HTTP1.1 中 Etag 的出现主要是为了解决几个 Last-Modified 比较难解决的问题</li> <li>一些文件也许会周期性的更改，但是他的内容并不改变 (仅仅改变的修改时间)，这个时候我们并不希望客户端认为这个文件被修改了，而重新 GET</li> <li>某些文件修改非常频繁，比如在秒以下的时间内进行修改，(比方说 1s 内修改了 N 次)，If-Modified-Since 能检查到的粒度是 s 级的，这种修改无法判断 (或者说 UNIX 记录 MTIME 只能精确到秒)；</li> <li>某些服务器不能精确的得到文件的最后修改时间。</li></ol></li></ul> <hr> <ul><li>小结：
+<ul><li><p>利用 Etag 能够更加准确的控制缓存，因为 Etag 是服务器自动生成或者由开发者生成的对应资源在服务器端的唯一标识符。</p></li> <li><p>Last-Modified 与 ETag 是可以一起使用的，服务器会优先验证 ETag，一致的情况下，才会继续比对 Last-Modified，最后才决定是否返回 304。</p></li></ul></li></ul> <h2 id="_5-强缓存如何重新加载新的资源"><a href="#_5-强缓存如何重新加载新的资源" class="header-anchor">#</a> 5. 强缓存如何重新加载新的资源</h2> <ul><li>通过更新页面中引用的资源路径，让浏览器主动放弃加载缓存去加载新的资源</li> <li>示例： <code>https://www.baidu.com/s?t=7aec0h3KB3Ba8lAbuyPg0AC0eDa59IvtDSmtMQBc6eW</code></li> <li>好处：
+<ul><li>每次文件改变后 query 的值就会发生修改，当 query 值不同的时候也就是页面引用的资源路径不同。此时浏览器会主动加载新的资源。</li></ul></li></ul> <h2 id="七-函数防抖和节流"><a href="#七-函数防抖和节流" class="header-anchor">#</a> 七。函数防抖和节流</h2> <p><strong>函数防抖 (debounce)：</strong></p> <ul><li>概念： 延迟要执行的动作，若在延迟的这段时间内，再次触发了，则取消之前开启的动作，重新计时。</li> <li>举例： 电脑无操作 1 分钟之内如果没有操作会进入休眠，当第 40 秒时鼠标被移动一下，重新计时 1 分钟。</li> <li>实现： 定时器。</li> <li>应用：搜索时等用户完整输入内容后再发送查询请求。</li></ul> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">&quot;en&quot;</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">&quot;UTF-8&quot;</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>函数防抖测试<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">&quot;text&quot;</span> id<span class="token operator">=</span><span class="token string">&quot;user_input&quot;</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>
+<span class="token operator">&lt;</span>button id<span class="token operator">=</span><span class="token string">&quot;btn&quot;</span><span class="token operator">&gt;</span>搜索<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">&quot;text/javascript&quot;</span><span class="token operator">&gt;</span>
+  <span class="token keyword">let</span> inputNode <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'user_input'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> id<span class="token punctuation">;</span>
+  inputNode<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keyup'</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> value <span class="token operator">=</span> inputNode<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function">clearTimeout</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    id <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+      <span class="token function">sendAjax</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">300</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  
+  <span class="token keyword">function</span> <span class="token function">sendAjax</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">发送了一次Ajax请求，内容为</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>data<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><p><strong>函数节流 (throttle)：</strong></p> <ul><li><p>概念：设定一个特定的时间，让函数在特定的时间内只执行一次，不会频繁执行</p></li> <li><p>举例：fps 游戏，鼠标按住不松手，子弹也不会连成一条线</p></li> <li><p>实现：定时器、标识</p></li> <li><p>需求：在鼠标滚轮滚动的时候，每隔 2 秒钟，打印一次</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">&quot;en&quot;</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">&quot;UTF-8&quot;</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>函数节流<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>style<span class="token operator">&gt;</span>
+    body <span class="token punctuation">{</span>
+      <span class="token literal-property property">height</span><span class="token operator">:</span>2000px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">&quot;text/javascript&quot;</span><span class="token operator">&gt;</span>
+  <span class="token keyword">let</span> canLog <span class="token operator">=</span> <span class="token boolean">true</span>
+  document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function-variable function">onscroll</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>canLog<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+      canLog <span class="token operator">=</span> <span class="token boolean">false</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+        canLog <span class="token operator">=</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">2000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div></li></ul></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/Takichange/edit/master/docs/views/views/01.前端/110.性能优化/10.性能优化.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">4/28/2022, 6:08:46 PM</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/bdbd49/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">uni-app</div></a> <a href="/pages/3b5bc6/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">移动端适配</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/bdbd49/" class="prev">uni-app</a></span> <span class="next"><a href="/pages/3b5bc6/">移动端适配</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/a72718/"><div>
+            前端常用设计模式
+            <!----></div></a> <span class="date">04-01</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/423757/"><div>
+            谷歌调试快捷键
+            <!----></div></a> <span class="date">06-23</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/427ffd/"><div>
+            JS设计模式
+            <!----></div></a> <span class="date">06-02</span></dt></dl> <dl><dd></dd> <dt><a href="/archives" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a title="QQ" target="_blank" class="iconfont icon-QQ"></a><a href="https://github.com/Takichange" title="GitHub" target="_blank" class="iconfont icon-github"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2022-2023
+    <span>
+    </span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <div class="body-bg" style="background:url() center center / cover no-repeat;opacity:0.5;"></div> <!----> <!----></div><div class="global-ui"><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:5;" data-v-248d85d6></canvas></div><!----><div class="RibbonAnimation"></div></div></div>
+    <script src="/assets/js/app.276c1dfb.js" defer></script><script src="/assets/js/11.c37d6593.js" defer></script><script src="/assets/js/24.253b512b.js" defer></script>
+  </body>
+</html>
